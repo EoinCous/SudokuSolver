@@ -22,7 +22,6 @@ public class SudokuSolver {
 				{0,0,7,0,4,0,2,0,3}
 		};
 		*/
-		System.out.println("Enter the unsolved sudoku board. Start with the top row, enter from left to right.\nTo change the previous number, input '999'.\nEnter '0' for unknown numbers.");
 		int[][] board = enterBoard();
 				
 		//Prints the unsolved board
@@ -56,8 +55,10 @@ public class SudokuSolver {
 		}
 	}
 	
-	// Method to easily enter an unsolved board
+	// Method to enter an unsolved board
 	private static int[][] enterBoard() {
+		System.out.println("Enter the unsolved sudoku board. Start with the top row, enter from left to right.\nTo change the previous number, input '999'.\nEnter '0' for unknown numbers.");
+
 		int[][] board = {
 				{0,0,0,0,0,0,0,0,0},
 				{0,0,0,0,0,0,0,0,0},
