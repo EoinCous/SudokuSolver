@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 //This program solves any sudoku board
 
 public class SudokuSolver {
@@ -6,6 +8,7 @@ public class SudokuSolver {
 
 	public static void main(String[] args) {
 		
+		/*
 		//Sample unsolved board
 		int[][] board = {
 				{7,0,2,0,5,0,6,0,0},
@@ -18,7 +21,10 @@ public class SudokuSolver {
 				{0,0,0,2,0,0,0,0,0},
 				{0,0,7,0,4,0,2,0,3}
 		};
-		
+		*/
+		System.out.println("Enter the unsolved sudoku board. Start with the top row, enter from left to right. To change a number enter");
+		int[][] board = enterBoard();
+				
 		//Prints the unsolved board
 		printBoard(board);
 		
@@ -49,15 +55,35 @@ public class SudokuSolver {
 			System.out.println();
 		}
 	}
-	/*
-	 * Method to easily enter an unsolved board
+	
+	// Method to easily enter an unsolved board
 	private static int[][] enterBoard() {
-		int[][] board;
-		
-		
+		int[][] board = {
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0}
+		};
+		Scanner sc = new Scanner(System.in);
+		for(int row = 0; row<GRID_SIZE; row++) {
+			System.out.println("Enter row " + (row + 1));
+			for(int column = 0; column<GRID_SIZE; column++) {
+				int input = sc.nextInt();
+				if(input >= 0 && input < 10) {
+					board[row][column] = input;
+				} else {
+					column--;
+				}
+			}
+		}
 		return board;
 	}
-*/
+
 	//The following three methods check if a number is in the specified row/column/box
 	
 	private static boolean isNumberInRow(int[][] board, int number, int row) {
